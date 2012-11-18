@@ -8,8 +8,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <%= render 'layouts/header' %>
-      <div class="container">
+    <div class="container">
+        <%= render 'layouts/header' %>
         <% flash.each do |name, msg| %>
             <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
               <a class="close" data-dismiss="alert">×</a>
@@ -17,12 +17,21 @@
             </div>
         <% end %>
         <div class="row">
-          <div class="span9"><%= yield %></div>
-          <div class="span3">
-            <h2>About Us</h2>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <div class="span2"/><div class="photos">
+          <p><%= link_to image_tag(img src=", alt: "Eiffel Tower"), 'http://www.iie.org/' %></p>
+          <p><%= link_to image_tag("st_basils.jpg", alt: "Eiffel Tower"), 'http://www.iie.org/' %></p>
+          <p><%= link_to image_tag("spain_flag_w_moon.jpg", alt: "Eiffel Tower"), 'http://www.iie.org/' %></p>
+          <p><%= link_to image_tag("hagiasofia.jpg", alt: "Eiffel Tower"), 'http://www.iie.org/' %></p>
+          </div>
+          </div>
+          <div class="span8"><%= yield %></div>
+          <div class="span2">
+            <colleagues>
+                <h2>Colleagues</h2>
+            </colleagues>
           </div>
         </div>
+        <%= render 'layouts/footer' %>
       </div>
 </body>
 </html>
